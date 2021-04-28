@@ -8,7 +8,7 @@
 		"prettier": "prettier \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)\"",
 		"format": "npm run prettier -- --write",
 		"validate": "npm run lint && npm run prettier -- --list-different",
-		"precommit": "lint-staged"
+		"prepare": "husky install"
 	},
 	"repository": {
 		"type": "git",
