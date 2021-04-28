@@ -1,0 +1,32 @@
+{
+	"name": "project-euler",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"lint": "eslint src",
+		"prettier": "prettier \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)\"",
+		"format": "npm run prettier -- --write",
+		"validate": "npm run lint && npm run prettier -- --list-different",
+		"precommit": "lint-staged"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bartverduijn/Project-Euler.git"
+	},
+	"author": "Bart Verduijn",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/bartverduijn/Project-Euler/issues"
+	},
+	"homepage": "https://github.com/bartverduijn/Project-Euler#readme",
+	"devDependencies": {
+		"eslint": "^7.25.0",
+		"eslint-config-airbnb-base": "^14.2.1",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-import": "^2.22.1",
+		"husky": "^6.0.0",
+		"lint-staged": "^10.5.4",
+		"prettier": "^2.2.1"
+	}
+}

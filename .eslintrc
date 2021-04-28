@@ -1,0 +1,32 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"node": true
+	},
+	"extends": [
+		"airbnb-base",
+		"eslint-config-prettier"
+	],
+	"parserOptions": {
+		"ecmaVersion": 2018,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"experimentalObjectRestSpread": true,
+			"impliedStrict": true,
+			"jsx": true
+		}
+	},
+	"rules": {
+		"indent": [
+			"error",
+			"tab"
+		],
+		"no-unused-vars": [
+			"warn",
+			{
+				"argsIgnorePattern": "res|next|^err"
+			}
+		]
+	}
+}
