@@ -10,8 +10,8 @@ function largestPalindromeProduct(n) {
 	const max = parseInt('9'.repeat(n));
 	const min = (max + 1) / 10;
 
-	for (let i = max; i > min; i -= 1) {
-		for (let j = max; j > min; j -= 1) {
+	for (let i = max; i >= min; i -= 1) {
+		for (let j = max; j >= min; j -= 1) {
 			const prd = i * j;
 			// not interested if the product is smaller than the llpp
 			if (prd < lpp) break;
