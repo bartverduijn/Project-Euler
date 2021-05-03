@@ -4,6 +4,7 @@
  */
 
 function largestProductinaSeries(n) {
+	// eslint-disable-next-line no-unexpected-multiline
 	const thousandDigits = [
 		7,
 		3,
