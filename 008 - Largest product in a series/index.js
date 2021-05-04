@@ -9,7 +9,7 @@ function largestProductinaSeries(n) {
 
 	let largestProduct = 0;
 	// Loop over all records until reaching the end - n, so you keep space for the last 'window'
-	for (let i = 0; i < thousandDigits.length - n + 1; i += 1) {
+	for (let i = 0; i <= thousandDigits.length - n; i += 1) {
 		let product = 1;
 		// Start the loop at the begin record, and loop over it n times (thus till reaching record i + n)
 		for (let j = i; j < i + n; j += 1) {
