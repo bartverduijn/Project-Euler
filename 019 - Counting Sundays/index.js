@@ -15,7 +15,7 @@
 */
 
 function determineFirstDay(year, month) {
-	// Determine day of january first of firstYear. Reference: https://cs.uwaterloo.ca/~alopez-o/math-faq/node73.html
+	// Reference: https://cs.uwaterloo.ca/~alopez-o/math-faq/node73.html
 	const k = 1;
 	const m = month;
 	const y = month > 10 ? year - 1 : year;
