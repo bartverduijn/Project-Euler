@@ -14,7 +14,6 @@ function sieve(n) {
 	for (let i = 2; i <= n; i += 1) {
 		numbers.push(true);
 	}
-
 	// Sieve of Eratosthenes
 	for (let i = 2; i < Math.sqrt(n); i += 1) {
 		if (numbers[i]) {
@@ -34,24 +33,42 @@ function sieve(n) {
 	return primes;
 }
 
-function rotatePrimes(n) {
-	let num = String(n);
-	let isPrime = true;
-	for (let i = 1; i < String(num).length; i += 1) {
-		num = num.slice(-1) + num.slice(0, num.length - 1);
-		const primes = sieve(num);
-		// eslint-disable-next-line eqeqeq
-		if (primes[primes.length - 1] != num) {
-			isPrime = false;
-			break;
+function rotatePrimes(primes) {
+	const rotations = {};
+	for (let i = 0; i < primes.length; i += 1) {
+		rotations[primes[i]] = [primes[i]];
+		let rotation = String(primes[i]);
+		for (let j = 1; j < rotation.length; j += 1) {
+			rotation =
+				rotation.slice(-1) + rotation.slice(0, rotation.length - 1);
+			// If the number is a palindrome, only count it once (e.g. 11)
+			if (!rotations[primes[i]].includes(parseInt(rotation)))
+				rotations[primes[i]].push(parseInt(rotation));
 		}
 	}
-	return isPrime;
+	return rotations;
 }
 
 function circularPrimes(n) {
+	let count = 0;
+	// 1. Find primes between 0 and n
 	const primes = sieve(n);
-	return primes.filter(p => rotatePrimes(p)).length;
+	// 2. Rotate the found primes to determine the largest number
+	// So we can sieve once instead of every number.
+	const rotations = rotatePrimes(primes);
+	const largestRotation = Math.max(...Object.values(rotations).flat());
+	const rotatedPrimes = sieve(largestRotation);
+	// 3. Check for each prime if all its rotations are primes as well.
+	// If so, count the prime as one.
+	for (let i = 0; i < Object.keys(rotations).length; i += 1) {
+		let isPrime = true;
+		Object.values(rotations)[i].forEach(r => {
+			if (!rotatedPrimes.includes(r)) isPrime = false;
+		});
+		if (isPrime) count += 1;
+	}
+
+	return count;
 }
 
 console.log(circularPrimes(100));
