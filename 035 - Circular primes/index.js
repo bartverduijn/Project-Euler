@@ -56,7 +56,13 @@ function circularPrimes(n) {
 	// 2. Rotate the found primes to determine the largest number
 	// So we can sieve once instead of every number.
 	const rotations = rotatePrimes(primes);
-	const largestRotation = Math.max(...Object.values(rotations).flat());
+
+	let largestRotation = 0;
+	const flattenedRotations = Object.values(rotations).flat();
+	for (let i = 0; i < flattenedRotations.length; i += 1) {
+		if (flattenedRotations[i] > largestRotation)
+			largestRotation = flattenedRotations[i];
+	}
 	const rotatedPrimes = sieve(largestRotation);
 	// 3. Check for each prime if all its rotations are primes as well.
 	// If so, count the prime as one.
