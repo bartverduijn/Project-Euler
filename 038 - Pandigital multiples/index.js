@@ -28,7 +28,7 @@ function containsDoublesOrZero(str) {
 }
 
 function containsAllDigits(str) {
-	// we don't care about zero, as it's allready caught by containsDoublesOrZero
+	// we don't care about zero, as it's already caught by containsDoublesOrZero
 	const digits = [true];
 	for (let i = 1; i < 10; i += 1) {
 		digits.push(false);
@@ -45,9 +45,10 @@ function containsAllDigits(str) {
 
 function pandigitalMultiples() {
 	let largestNumber = 0;
-	const limit = 98765; /* 4321 */
+	// Largest number can be a 4 digit number
+	const limit = 9876;
 	let n = 3;
-	for (let i = 2; i < limit / 3; i += 1) {
+	for (let i = 2; i < limit; i += 1) {
 		let concat = String(i);
 		for (let j = 2; j < n; j += 1) {
 			concat += String(j * i);
