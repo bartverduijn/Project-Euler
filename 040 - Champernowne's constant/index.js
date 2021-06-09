@@ -17,12 +17,7 @@ function champernownesConstant(n) {
 		for (let j = 0; j < number.length; j += 1) {
 			counter += 1;
 			// If the log10(counter) is a whole number, meaning it's 10, 100, 1000 etc.
-			if (
-				Math.floor(Math.log10(counter)) ===
-				Math.ceil(Math.log10(counter))
-			) {
-				product *= number[j];
-			}
+			if (Math.log10(counter) % 1 === 0) product *= number[j];
 		}
 	}
 	return product;
