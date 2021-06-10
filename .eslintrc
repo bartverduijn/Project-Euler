@@ -28,6 +28,7 @@
 				"argsIgnorePattern": "res|next|^err"
 			}
 		],
-		"no-console": "off"
+		"no-console": "off",
+		"radix": ["error", "as-needed"]
 	}
 }
